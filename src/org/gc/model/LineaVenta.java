@@ -1,6 +1,4 @@
-
 package org.gc.model;
-
 
 //Línea de venta: un libro con su cantidad, usada como fila temporal en la pantalla de venta
 //antes de guardar los DetalleVenta en la base de datos.

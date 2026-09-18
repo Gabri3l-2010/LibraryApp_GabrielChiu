@@ -1,4 +1,3 @@
-
 package org.gc.model;
 
 public class Editorial {

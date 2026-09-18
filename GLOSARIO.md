@@ -1,4 +1,4 @@
-Clase
+1.Clase
 Definición formal: Plantilla o molde ejecutable en programación orientada a objetos que define los atributos (propiedades) y métodos (comportamientos) comunes a todos los objetos creados a partir de ella.
  mis palabras: El plano arquitectónico o molde que dice qué datos va a tener y qué puede hacer un elemento del programa.
 Ubicación en el código: src/main/java/com/proyecto/model/Usuario.java (en la declaración public class Usuario).

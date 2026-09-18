@@ -1,5 +1,5 @@
-
 package org.gc.model;
+
 
 public class DetalleVenta {
     private int idDetalleVenta;
@@ -22,11 +22,13 @@ public class DetalleVenta {
     public int getIdDetalleVenta() {
         return idDetalleVenta;
     }
+    
 
     public void setIdDetalleVenta(int idDetalleVenta) {
         this.idDetalleVenta = idDetalleVenta;
     }
 
+    
     public int getNoVenta() {
         return noVenta;
     }

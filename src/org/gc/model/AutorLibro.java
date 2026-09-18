@@ -1,11 +1,12 @@
+package org.gc.model;
 
-package org.gc.model; 
 
 public class AutorLibro {
-    private int idAutorLibro;
+   private int idAutorLibro;
+
+    
     private int idAutor;
     private String isbn;
-
     public AutorLibro() {
     }
 
@@ -15,6 +16,7 @@ public class AutorLibro {
         this.isbn = isbn;
     }
 
+   
     public int getIdAutorLibro() {
         return idAutorLibro;
     }
@@ -27,14 +29,17 @@ public class AutorLibro {
         return idAutor;
     }
 
+    
     public void setIdAutor(int idAutor) {
         this.idAutor = idAutor;
     }
 
+    
     public String getIsbn() {
         return isbn;
     }
 
+   
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }

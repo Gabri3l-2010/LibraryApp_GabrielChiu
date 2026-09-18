@@ -2,7 +2,7 @@
 package org.gc.model;
 
 public class Venta {
-      private int noVenta;
+    private int noVenta;
     private String fechaVenta;
     private double totalVenta;
     private long cuiCliente;
@@ -59,4 +59,3 @@ public class Venta {
         this.idUsuario = idUsuario;
     }
 }
-

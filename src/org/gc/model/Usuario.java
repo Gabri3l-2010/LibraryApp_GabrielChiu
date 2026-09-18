@@ -1,4 +1,3 @@
-
 package org.gc.model;
 
 import java.sql.Timestamp;

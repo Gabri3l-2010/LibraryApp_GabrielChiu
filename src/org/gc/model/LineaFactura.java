@@ -1,8 +1,7 @@
-
 package org.gc.model;
 
-//Proyeccion de solo lectura para la factura: una fila del resultado del SP
-//sp_buscar_factura (venta + cliente + libro + usuario). No es una entidad.
+//Proyeccion d solo lectura para la factura: una fila del resultado del SP
+//sp_buscar_facctura (venta + cliente + libro + usuario). No es una entidad.
 public class LineaFactura {
     private int numeroFactura;
     private String fechaEmision;
