@@ -1,9 +1,7 @@
 package org.gc.model;
 /**
  * Representa la entidad Autor dentro del sistema LibraryApp
- * 
  * @author informatica
- * @version 1.0.0[cite: 1]
  */
 public class Autor {
     /** Identificador único del autor
