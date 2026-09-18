@@ -1,5 +1,8 @@
 package org.gc.model;
-
+/**
+ * 
+ * @author informatica
+ */
 
 public class AutorLibro {
    private int idAutorLibro;
