@@ -14,6 +14,7 @@ public class Autor {
     private String nacionalidad;
     /** Breve reseña biográfica del autor */
     private String biografia;
+    private int idAutor;
     /**
      * Constructor por defecto
      */
