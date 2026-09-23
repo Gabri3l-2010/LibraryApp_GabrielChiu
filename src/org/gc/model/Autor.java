@@ -1,7 +1,8 @@
 package org.gc.model;
 /**
  * Representa la entidad Autor dentro del sistema LibraryApp
- * @author informatica
+ * @author Gabriel Chiu 
+ * @version 1.0.0
  */
 public class Autor {
     /** Identificador único del autor

@@ -4,7 +4,8 @@ import java.sql.Timestamp;
 
 /**
  * Representa la entidad Usuario dentro del sistema.
- * @author informatica
+ * @author Gabriel Chiu 
+ * @version 1.0.0
  */
 public class Usuario {
 

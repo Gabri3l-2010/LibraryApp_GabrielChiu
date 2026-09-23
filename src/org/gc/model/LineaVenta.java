@@ -4,7 +4,7 @@ package org.gc.model;
  * Representa una línea de venta en memoria.
  * Contiene un libro y su cantidad asociada, utilizada como fila temporal en la pantalla
  * de interfaz de usuario antes de persistir los registros como {@code DetalleVenta} en la base de datos.
- * @author Nombre del Estudiante
+ * @author Gabriel Chiu
  * @version 1.0.0
  */
 public class LineaVenta {

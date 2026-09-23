@@ -3,7 +3,8 @@ package org.gc.model;
 /**
  * Clase que representa el detalle de una venta dentro del sistema.
  * Contiene la información específica de un producto o ítem asociado a una venta.
- * @author informatica
+ * @author Gabriel Chiu 
+ * @version 1.0.0
  */
 public class DetalleVenta {
 

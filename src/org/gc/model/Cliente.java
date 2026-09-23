@@ -3,7 +3,8 @@ package org.gc.model;
 /**
  * Clase que representa la entidad Cliente dentro del sistema.
  * Contiene la información personal y de contacto asociada a un cliente.
- *@author informatica
+ *@author Gabriel Chiu 
+ * @version 1.0.0
  */
 public class Cliente {
 
