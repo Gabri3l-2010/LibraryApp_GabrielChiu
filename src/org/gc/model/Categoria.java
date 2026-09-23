@@ -3,7 +3,6 @@ package org.gc.model;
 /**
  * Representa la entidad Categoria en el siste
  * @author informatica
- * @version 1.0.0
  */
 public class Categoria {
 

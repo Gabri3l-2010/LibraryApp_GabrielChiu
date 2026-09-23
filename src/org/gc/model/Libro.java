@@ -3,8 +3,7 @@ package org.gc.model;
 /**
  * Clase que representa la entidad Libro dentro del sistema.
  * Contiene los datos descriptivos, comerciales y de inventario de un libro.
- * @author Nombre del Estudiante
- * @version 1.0.0
+ * @author informatica
  */
 public class Libro {
 

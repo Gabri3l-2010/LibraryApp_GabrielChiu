@@ -4,8 +4,7 @@ package org.gc.model;
  * Proyección de solo lectura para la representación de una línea de factura.
  * Mapea una fila del resultado del procedimiento almacenado {@code sp_buscar_factura}
  * uniendo la información de venta, cliente, libro y usuario.
- * @author Nombre del Estudiante
- * @version 1.0.0
+ * @author informatica
  */
 public class LineaFactura {
 

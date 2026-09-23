@@ -3,8 +3,7 @@ package org.gc.model;
 /**
  * Clase que representa la entidad Editorial dentro del sistema.
  * Contiene la información legal y de contacto de la casa editorial.
- * @author Nombre del Estudiante
- * @version 1.0.0
+ *@author informatica
  */
 public class Editorial {
 

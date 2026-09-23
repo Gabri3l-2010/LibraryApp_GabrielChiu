@@ -2,8 +2,7 @@ package org.gc.model;
 
 /**
  * Representa la entidad de modelo para gestionar la información de una venta.
- * @author Nombre del Estudiante
- * @version 1.0.0
+ * @author informatica
  */
 public class Venta {
 

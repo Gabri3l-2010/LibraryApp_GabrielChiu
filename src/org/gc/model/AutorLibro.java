@@ -1,9 +1,8 @@
 package org.gc.model;
 
 /**
- * Representa la entidad de relación entre un autor y un libro en el sistema.
+ * 
  * @author informatica
- * @version 1.0.0
  */
 public class AutorLibro {
 
