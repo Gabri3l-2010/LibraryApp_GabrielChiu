@@ -10,8 +10,24 @@ import org.gc.exception.DaoException;
 import org.gc.model.Autor;
 import org.gc.util.Conexion;
 
+/**
+ * Implementación de la interfaz {@link AutorDAO} que gestiona las operaciones
+ * de persistencia para la entidad {@link Autor} utilizando procedimientos almacenados en MySQL.
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.dao.AutorDAO
+ * @see org.gc.model.Autor
+ */
 public class AutorDAOimpl implements AutorDAO {
 
+    /**
+     * Recupera el listado completo de autores registrados en la base de datos
+     * mediante el procedimiento almacenado {@code sp_listarautores}.
+     * @return Un {@link ArrayList} que contiene los objetos {@link Autor} registrados.
+     * Retorna una lista vacía si no hay registros.
+     * @throws DaoException si ocurre un error en la consulta SQL o de conexión.
+     */
     @Override
     public ArrayList<Autor> listarTodos() {
         ArrayList<Autor> lista = new ArrayList<>();
@@ -34,6 +50,12 @@ public class AutorDAOimpl implements AutorDAO {
         return lista;
     }
 
+    /**
+     * Busca un autor por su identificador único mediante el procedimiento almacenado {@code sp_buscarautor}.
+     * @param idAutor El ID del autor a buscar.
+     * @return El objeto {@link Autor} si se encuentra registrado; {@code null} en caso contrario.
+     * @throws DaoException si ocurre un error de conexión o en la base de datos.
+     */
     @Override
     public Autor buscarPorId(Integer idAutor) {
         Autor a = null;
@@ -57,6 +79,12 @@ public class AutorDAOimpl implements AutorDAO {
         return a;
     }
 
+    /**
+     * Registra un nuevo autor en la base de datos mediante el procedimiento almacenado {@code sp_insertarautor}.
+     * @param autor Objeto {@link Autor} con la información a registrar.
+     * @return {@code true} si la inserción fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException si ocurre un error al ejecutar la inserción en la base de datos.
+     */
     @Override
     public boolean crear(Autor autor) {
         String sql = "{call sp_insertarautor(?,?,?,?)}";
@@ -72,6 +100,12 @@ public class AutorDAOimpl implements AutorDAO {
         }
     }
 
+    /**
+     * Actualiza la información de un autor existente mediante el procedimiento almacenado {@code sp_actualizarautor}.
+     * @param autor Objeto {@link Autor} con los datos actualizados.
+     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException si ocurre un error al ejecutar la actualización en la base de datos.
+     */
     @Override
     public boolean actualizar(Autor autor) {
         String sql = "{call sp_actualizarautor(?,?,?,?,?)}";
@@ -88,6 +122,12 @@ public class AutorDAOimpl implements AutorDAO {
         }
     }
 
+    /**
+     * Elimina un autor de la base de datos mediante el procedimiento almacenado {@code sp_eliminarautor}.
+     * @param idAutor El identificador único del autor a eliminar.
+     * @return {@code true} si la eliminación fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException si ocurre un error al ejecutar el borrado en la base de datos.
+     */
     @Override
     public boolean eliminar(Integer idAutor) {
         String sql = "{call sp_eliminarautor(?)}";
@@ -98,5 +138,10 @@ public class AutorDAOimpl implements AutorDAO {
         } catch (SQLException e) {
             throw new DaoException("Error al eliminar autor: " + e.getMessage(), e);
         }
+    }
+
+    @Override
+    public boolean insertar(Autor autor) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
