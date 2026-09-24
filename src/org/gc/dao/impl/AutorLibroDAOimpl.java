@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import org.gc.dao.AutorLibroDAO;
 import org.gc.exception.DaoException;
 import org.gc.model.AutorLibro;
@@ -129,5 +130,15 @@ public class AutorLibroDAOimpl implements AutorLibroDAO {
         } catch (SQLException e) {
             throw new DaoException("Error al eliminar autor_libro: " + e.getMessage(), e);
         }
+    }
+
+    @Override
+    public boolean insertar(AutorLibro autorLibro) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public List<AutorLibro> listar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
