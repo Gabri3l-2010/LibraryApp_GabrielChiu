@@ -156,3 +156,14 @@ Ejemplo:
 [JDBC envía el 'INSERT INTO...']
        ↓
 [Tabla en MySQL]
+
+
+cuestionario extra semana 2
+
+Cuestionamiento extra: ¿Qué es la "Inyección SQL" y cómo la previenen PreparedStatement y CallableStatement?
+
+Qué es la Inyección SQL?
+Es una vulnerabilidad que ocurre al concatenar directamente datos del usuario en una consulta SQL sin validación. Permite a un atacante ejecutar código malicioso para eludir autenticaciones, acceder a datos confidenciales o manipular la base de datos.
+
+Ejemplo de código vulnerable:
+String query = "SELECT * FROM usuarios WHERE usuario = '" + usuario + "' AND password = '" + password + "'";

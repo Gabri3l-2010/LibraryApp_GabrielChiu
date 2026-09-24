@@ -27,3 +27,20 @@ Definición formal: Clase envolvente del paquete java.lang que representa un tip
 mis palabras: Una versión "avanzada" de un dato básico que lo convierte en objeto para poder usarlo en listas o asignarle valor nulo.
 Ubicación en el código: src/main/java/com/proyecto/dao/UsuarioDAO.java (al definir un List<Integer> o convertir texto con Integer.parseInt()).
 Ejemplo: Permite guardar números enteros dentro de un ArrayList<Integer>, algo que Java no permite hacer directamente con el tipo primitivo int.
+
+Glosario semana 2
+
+1.DAO (Data Access Object)
+Patrón de diseño que abstrae e aísla los mecanismos de acceso a la base de datos del resto de la aplicación, proporcionando una interfaz limpia para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
+
+2.Inyección SQL
+Vulnerabilidad de seguridad en la que un atacante inserta o "inyecta" código SQL malicioso a través de los datos de entrada del usuario para manipular las consultas a la base de datos y acceder o modificar datos no autorizados.
+
+3.JDBC (Java Database Connectivity)
+API estándar de Java que permite a las aplicaciones conectarse e interactuar con bases de datos relacionales mediante la ejecución de consultas y sentencias SQL.
+
+4.PreparedStatement
+Interfaz de JDBC que representa una sentencia SQL precompilada. Permite la ejecución eficiente de consultas repetitivas y ayuda a prevenir ataques de **Inyección SQL** mediante la parametrización de datos.
+
+5.Singleton
+Patrón de diseño creacional que garantiza que una clase tenga únicamente una instancia en toda la aplicación y proporciona un punto de acceso global a ella.L
