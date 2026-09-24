@@ -15,10 +15,25 @@ import org.gc.model.LineaVenta;
 import org.gc.model.Venta;
 import org.gc.util.Conexion;
 
+/**
+ * Implementación de la interfaz {@link VentaDAO} para el manejo de la persistencia 
+ * de la entidad {@link Venta} y sus operaciones asociadas en la base de datos MySQL.
+ * @author Nombre del Estudiante
+ * @version 1.0.0
+ * @see VentaDAO
+ * @see Venta
+ * @see LineaVenta
+ * @see DetalleVenta
+ */
 public class VentaDAOimpl implements VentaDAO {
 
     private final DetalleVentaDAO detalleVentaDAO = new DetalleVentaDAOimpl();
 
+    /**
+     * Recupera el listado completo de las ventas registradas en la base de datos.
+     * @return Un {@link ArrayList} de objetos {@link Venta} registrados. Retorna una lista vacía si no se encuentran registros.
+     * @throws DaoException Si ocurre un error al realizar la consulta en la base de datos.
+     */
     @Override
     public ArrayList<Venta> listarTodos() {
         ArrayList<Venta> lista = new ArrayList<>();
@@ -41,6 +56,12 @@ public class VentaDAOimpl implements VentaDAO {
         return lista;
     }
 
+    /**
+     * Busca una venta específica en la base de datos mediante su número de venta.
+     * @param noVenta Identificador único de la venta a consultar.
+     * @return El objeto {@link Venta} encontrado; {@code null} si no existe un registro coincidente.
+     * @throws DaoException Si ocurre un error de acceso a la base de datos.
+     */
     @Override
     public Venta buscarPorId(Integer noVenta) {
         Venta v = null;
@@ -64,6 +85,12 @@ public class VentaDAOimpl implements VentaDAO {
         return v;
     }
 
+    /**
+     * Inserta unicamente el encabezado de una venta mediante el procedimiento almacenado sp_insertar_venta.
+     * @param venta Objeto {@link Venta} que contiene la información del encabezado. No debe ser null.
+     * @return {@code true} si el encabezado de la venta se creó correctamente; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error durante el registro en la base de datos.
+     */
     @Override
     public boolean crear(Venta venta) {
         String sql = "{call sp_insertar_venta(?,?,?)}";
@@ -78,6 +105,12 @@ public class VentaDAOimpl implements VentaDAO {
         }
     }
 
+    /**
+     * Actualiza la información de un registro de venta existente mediante el procedimiento sp_actualizar_venta.
+     * @param venta Objeto {@link Venta} con los datos actualizados a persistir. No debe ser null.
+     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al procesar la actualización en la base de datos.
+     */
     @Override
     public boolean actualizar(Venta venta) {
         String sql = "{call sp_actualizar_venta(?,?,?,?,?)}";
@@ -98,9 +131,14 @@ public class VentaDAOimpl implements VentaDAO {
         }
     }
 
-    //crearVenta inserta el encabezado de la venta, obtiene el no_venta con
-    //LAST_INSERT_ID() y luego inserta cada línea y descuenta el stock.
-    //No es atómico (ver plan), por eso se reporta si algún detalle falla.
+    /**
+     * Inserta el encabezado de la venta, recupera el ID generado, inserta cada línea de detalle 
+     * y descuenta el stock de los productos vendidos.
+     * @param venta Objeto {@link Venta} que contiene el encabezado de la transacción. No debe ser null.
+     * @param lineas Lista de objetos {@link LineaVenta} con el detalle de productos. No debe ser null ni estar vacía.
+     * @return El número de venta (no_venta) generado tras la operación; {@code -1} en caso de fallo.
+     * @throws DaoException Si ocurre un error durante el proceso de inserción o actualización de stock.
+     */
     @Override
     public int crearVenta(Venta venta, List<LineaVenta> lineas) {
         int noVenta = -1;
@@ -134,6 +172,13 @@ public class VentaDAOimpl implements VentaDAO {
         return noVenta;
     }
 
+    /**
+     * Disminuye las unidades disponibles en el inventario para un libro específico mediante el procedimiento sp_descontar_stock.
+     * @param isbn Código ISBN del libro al que se le descontará stock.
+     * @param cantidad Cantidad de unidades a descontar del inventario.
+     * @return {@code true} si el descuento de stock se realizó con éxito; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al actualizar el inventario.
+     */
     private boolean descontarStock(String isbn, int cantidad) {
         String sql = "{call sp_descontar_stock(?,?)}";
         try (Connection conexion = Conexion.getInstancia().conectar();
@@ -146,6 +191,12 @@ public class VentaDAOimpl implements VentaDAO {
         }
     }
 
+    /**
+     * Elimina el registro de una venta en la base de datos mediante el procedimiento almacenado sp_eliminar_venta.
+     * @param noVenta Identificador único de la venta a eliminar.
+     * @return {@code true} si la venta fue eliminada correctamente; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error durante el proceso de eliminación.
+     */
     @Override
     public boolean eliminar(Integer noVenta) {
         String sql = "{call sp_eliminar_venta(?)}";
