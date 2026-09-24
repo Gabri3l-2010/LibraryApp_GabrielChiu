@@ -51,10 +51,10 @@ public class ClienteDAOimpl implements ClienteDAO {
 
     /**
      * Busca un cliente por su Código Único de Identificación (CUI) 
-     * mediante el procedimiento almacenado {@code sp_buscarcliente}[cite: 1].
-     * @param cui El CUI del cliente a buscar[cite: 1].
-     * @return El objeto {@link Cliente} si se encuentra registrado; {@code null} en caso contrario[cite: 1].
-     * @throws DaoException si ocurre un error de conexión o en la base de datos[cite: 1].
+     * mediante el procedimiento almacenado {@code sp_buscarcliente}
+     * @param cui El CUI del cliente a buscar
+     * @return El objeto {@link Cliente} si se encuentra registrado; {@code null} en caso contrario
+     * @throws DaoException si ocurre un error de conexión o en la base de datos
      */
     @Override
     public Cliente buscarPorId(Long cui) {
@@ -79,11 +79,11 @@ public class ClienteDAOimpl implements ClienteDAO {
     }
 
     /**
-     * Registra un nuevo cliente en la base de datos mediante el procedimiento almacenado {@code sp_insertarcliente}[cite: 1].
+     * Registra un nuevo cliente en la base de datos mediante el procedimiento almacenado {@code sp_insertarcliente}
      * 
-     * @param cliente Objeto {@link Cliente} con la información a registrar[cite: 1].
-     * @return {@code true} si la inserción fue exitosa; {@code false} en caso contrario[cite: 1].
-     * @throws DaoException si ocurre un error al ejecutar la inserción en la base de datos[cite: 1].
+     * @param cliente Objeto {@link Cliente} con la información a registrar
+     * @return {@code true} si la inserción fue exitosa; {@code false} en caso contrario
+     * @throws DaoException si ocurre un error al ejecutar la inserción en la base de datos
      */
     @Override
     public boolean crear(Cliente cliente) {
@@ -101,11 +101,11 @@ public class ClienteDAOimpl implements ClienteDAO {
     }
 
     /**
-     * Actualiza la información de un cliente existente mediante el procedimiento almacenado {@code sp_actualizarcliente}[cite: 1].
+     * Actualiza la información de un cliente existente mediante el procedimiento almacenado {@code sp_actualizarcliente.
      * 
-     * @param cliente Objeto {@link Cliente} con los datos actualizados[cite: 1].
-     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario[cite: 1].
-     * @throws DaoException si ocurre un error al ejecutar la actualización en la base de datos[cite: 1].
+     * @param cliente Objeto {@link Cliente} con los datos actualizados
+     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario
+     * @throws DaoException si ocurre un error al ejecutar la actualización en la base de datos
      */
     @Override
     public boolean actualizar(Cliente cliente) {
@@ -125,8 +125,8 @@ public class ClienteDAOimpl implements ClienteDAO {
     /**
      * Elimina un cliente de la base de datos según su CUImediante el procedimiento almacenado {@code sp_eliminarcliente}[cite: 1].
      * @param cui El CUI del cliente a eliminar[cite: 1].
-     * @return {@code true} si la eliminación fue exitosa; {@code false} en caso contrario[cite: 1].
-     * @throws DaoException si ocurre un error al ejecutar el borrado en la base de datos[cite: 1].
+     * @return {@code true} si la eliminación fue exitosa; {@code false} en caso contrario
+     * @throws DaoException si ocurre un error al ejecutar el borrado en la base de datos.
      */
     @Override
     public boolean eliminar(Long cui) {
