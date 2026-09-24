@@ -1,46 +1,36 @@
-1.Clase
-Definición formal: Plantilla o molde ejecutable en programación orientada a objetos que define los atributos (propiedades) y métodos (comportamientos) comunes a todos los objetos creados a partir de ella.
- mis palabras: El plano arquitectónico o molde que dice qué datos va a tener y qué puede hacer un elemento del programa.
-Ubicación en el código: src/main/java/com/proyecto/model/Usuario.java (en la declaración public class Usuario).
-Ejemplo: Permite definir la estructura de un cliente (nombre, correo) una sola vez en lugar de duplicar variables sueltas por todo el proyecto.
+﻿# Glosario TÃ©cnico
 
-2. Objeto
-Definición formal: Instancia concreta de una clase creada en tiempo de ejecución, que posee un estado definido por sus atributos y un comportamiento definido por sus métodos.
-mis palabras: Un elemento real creado con la plantilla de la clase, con sus datos específicos cargados en memoria.
-Ubicación en el código: src/main/java/com/proyecto/controller/LoginController.java (al instanciar con new Usuario()).
-Ejemplo: Usuario user1 = new Usuario("Juan", "juan@mail.com");. Resuelve la necesidad de manipular datos reales e individuales de usuarios en el sistema.
+## Ficha 1: FXML
+1. **TÃ©rmino tÃ©cnico**: FXML
+2. **DefiniciÃ³n formal**: Lenguaje de marcado basado en XML diseÃ±ado para definir interfaces de usuario en aplicaciones JavaFX, separando la presentaciÃ³n de la lÃ³gica.
+3. **DefiniciÃ³n en mis palabras**: Es un archivo tipo XML donde dibujo cÃ³mo se verÃ¡ la pantalla de la aplicaciÃ³n sin programar.
+4. **UbicaciÃ³n en el cÃ³digo**: src/org/gc/view/fxml/
+5. **Ejemplo prÃ¡ctico & problema que resuelve**: En LibroView.fxml defino la estructura de la ventana. Resuelve el problema de tener cÃ³digo de diseÃ±o mezclado con cÃ³digo Java.
 
-3. Encapsulamiento
-Definición formal: Principio de la POO que oculta el estado interno de un objeto restringiendo el acceso directo a sus atributos mediante modificadores de visibilidad (private) y exponiendo solo métodos de acceso (getters y setters).
-mis palabras: Poner en privado los datos de una clase para que nadie los cambie directamente desde afuera sin pasar por reglas de validación.
-Ubicación en el código: src/main/java/com/proyecto/model/Producto.java (variables private double precio; con sus getPrecio() y setPrecio()).
-Ejemplo: Evita que otro programa ponga un precio negativo directamente (producto.precio = -500;), obligando a usar un método que valide el valor.
+## Ficha 2: SceneBuilder
+1. **TÃ©rmino tÃ©cnico**: SceneBuilder
+2. **DefiniciÃ³n formal**: Herramienta de diseÃ±o visual que permite generar cÃ³digo FXML rÃ¡pidamente sin escribir XML manualmente.
+3. **DefiniciÃ³n en mis palabras**: Un programa donde arrastro botones y tablas para crear la interfaz visual de forma rÃ¡pida.
+4. **UbicaciÃ³n en el cÃ³digo**: Herramienta externa.
+5. **Ejemplo prÃ¡ctico & problema que resuelve**: DiseÃ±ar visualmente LibroView.fxml. Resuelve la dificultad de escribir interfaces grÃ¡ficas con puro cÃ³digo XML.
 
-4. Tipo Primitivo
-Definición formal: Tipo de dato básico proporcionado por el lenguaje Java que almacena directamente un valor simple en memoria y no posee métodos ni atributos.
-Definición en mis palabras: Una variable básica y liviana que guarda un dato directo (como números o booleanos) sin ser un objeto complejo.
-Ubicación en el código: src/main/java/com/proyecto/model/Usuario.java (declaración private int edad; o private boolean activo;).
-Ejemplo: Permite realizar operaciones matemáticas directas y consumir la mínima cantidad de memoria RAM al manejar contadores o estados simples.
+## Ficha 3: Controller
+1. **TÃ©rmino tÃ©cnico**: Controller
+2. **DefiniciÃ³n formal**: Clase en el patrÃ³n MVC que sirve como intermediario entre la vista (FXML) y el modelo.
+3. **DefiniciÃ³n en mis palabras**: Es el archivo Java que le da vida a la pantalla y ejecuta acciones al presionar botones.
+4. **UbicaciÃ³n en el cÃ³digo**: src/org/gc/controller/
+5. **Ejemplo prÃ¡ctico & problema que resuelve**: LibroController.java se encarga de guardar un libro cuando el usuario presiona "Guardar".
 
-5. Clase Wrapper
-Definición formal: Clase envolvente del paquete java.lang que representa un tipo de dato primitivo como un objeto completo (ej. Integer para int), permitiendo su uso en colecciones o con valores null.
-mis palabras: Una versión "avanzada" de un dato básico que lo convierte en objeto para poder usarlo en listas o asignarle valor nulo.
-Ubicación en el código: src/main/java/com/proyecto/dao/UsuarioDAO.java (al definir un List<Integer> o convertir texto con Integer.parseInt()).
-Ejemplo: Permite guardar números enteros dentro de un ArrayList<Integer>, algo que Java no permite hacer directamente con el tipo primitivo int.
+## Ficha 4: ObservableList
+1. **TÃ©rmino tÃ©cnico**: ObservableList
+2. **DefiniciÃ³n formal**: Interfaz en JavaFX que extiende java.util.List para permitir a los listeners rastrear cambios.
+3. **DefiniciÃ³n en mis palabras**: Es una lista especial que avisa a la pantalla si se agregÃ³ o borrÃ³ un elemento para actualizarse sola.
+4. **UbicaciÃ³n en el cÃ³digo**: Definido en Controladores.
+5. **Ejemplo prÃ¡ctico & problema que resuelve**: Al usar ObservableList para un TableView, la tabla se refresca automÃ¡ticamente al aÃ±adir un nuevo registro.
 
-Glosario semana 2
-
-1.DAO (Data Access Object)
-Patrón de diseño que abstrae e aísla los mecanismos de acceso a la base de datos del resto de la aplicación, proporcionando una interfaz limpia para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar).
-
-2.Inyección SQL
-Vulnerabilidad de seguridad en la que un atacante inserta o "inyecta" código SQL malicioso a través de los datos de entrada del usuario para manipular las consultas a la base de datos y acceder o modificar datos no autorizados.
-
-3.JDBC (Java Database Connectivity)
-API estándar de Java que permite a las aplicaciones conectarse e interactuar con bases de datos relacionales mediante la ejecución de consultas y sentencias SQL.
-
-4.PreparedStatement
-Interfaz de JDBC que representa una sentencia SQL precompilada. Permite la ejecución eficiente de consultas repetitivas y ayuda a prevenir ataques de **Inyección SQL** mediante la parametrización de datos.
-
-5.Singleton
-Patrón de diseño creacional que garantiza que una clase tenga únicamente una instancia en toda la aplicación y proporciona un punto de acceso global a ella.L
+## Ficha 5: TableView
+1. **TÃ©rmino tÃ©cnico**: TableView
+2. **DefiniciÃ³n formal**: Control de UI en JavaFX diseÃ±ado para visualizar datos estructurados en filas y columnas.
+3. **DefiniciÃ³n en mis palabras**: Es el componente visual de tabla que lista datos en la pantalla.
+4. **UbicaciÃ³n en el cÃ³digo**: Archivos FXML y Controladores.
+5. **Ejemplo prÃ¡ctico & problema que resuelve**: Listar todos los registros de la base de datos en la pantalla de forma ordenada.
