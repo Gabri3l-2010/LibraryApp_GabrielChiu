@@ -13,7 +13,7 @@ import org.gc.util.Conexion;
 
 /**
  * Implementación de la interfaz {@link EditorialDAO} que gestiona las operaciones
- * de persistencia para la entidad {@link Editorial} utilizando procedimientos almacenados en MySQL.
+ * de persistencia para la entidad {@link Editorial} utilizando procedimientos almacenado en MySQL.
  * 
  * @author Gabriel Chiu
  * @version 1.0.0
@@ -25,8 +25,8 @@ public class EditorialDAOimpl implements EditorialDAO {
     /**
      * Recupera el listado completo de editoriales registradas en la base de datos
      * mediante el procedimiento almacenado {@code sp_listar_todos_editoriales}.
-     * @return Un {@link ArrayList} que contiene los objetos {@link Editorial} registrados.
-     *         Retorna una lista vacía si no existen registros.
+     * @return Un {@link ArrayList} que contiene ls objetos {@link Editorial} registrados.
+     *         Retorna una lista vacía i no existen registros.
      * @throws DaoException si ocurre un error en la consulta SQL o de conexión.
      */
     @Override
