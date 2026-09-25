@@ -167,3 +167,8 @@ Es una vulnerabilidad que ocurre al concatenar directamente datos del usuario en
 
 Ejemplo de código vulnerable:
 String query = "SELECT * FROM usuarios WHERE usuario = '" + usuario + "' AND password = '" + password + "'";
+
+
+cuestionario semana 3 
+ por que JavaFX utiliza ObserbableList en lugar de las listas de Java (ArrayList para nutrit componentes como TableView)?
+

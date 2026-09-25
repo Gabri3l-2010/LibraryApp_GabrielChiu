@@ -1,36 +1,58 @@
-﻿# Glosario TÃ©cnico
 
-## Ficha 1: FXML
-1. **TÃ©rmino tÃ©cnico**: FXML
-2. **DefiniciÃ³n formal**: Lenguaje de marcado basado en XML diseÃ±ado para definir interfaces de usuario en aplicaciones JavaFX, separando la presentaciÃ³n de la lÃ³gica.
-3. **DefiniciÃ³n en mis palabras**: Es un archivo tipo XML donde dibujo cÃ³mo se verÃ¡ la pantalla de la aplicaciÃ³n sin programar.
-4. **UbicaciÃ³n en el cÃ³digo**: src/org/gc/view/fxml/
-5. **Ejemplo prÃ¡ctico & problema que resuelve**: En LibroView.fxml defino la estructura de la ventana. Resuelve el problema de tener cÃ³digo de diseÃ±o mezclado con cÃ³digo Java.
+glosario semana 1
 
-## Ficha 2: SceneBuilder
-1. **TÃ©rmino tÃ©cnico**: SceneBuilder
-2. **DefiniciÃ³n formal**: Herramienta de diseÃ±o visual que permite generar cÃ³digo FXML rÃ¡pidamente sin escribir XML manualmente.
-3. **DefiniciÃ³n en mis palabras**: Un programa donde arrastro botones y tablas para crear la interfaz visual de forma rÃ¡pida.
-4. **UbicaciÃ³n en el cÃ³digo**: Herramienta externa.
-5. **Ejemplo prÃ¡ctico & problema que resuelve**: DiseÃ±ar visualmente LibroView.fxml. Resuelve la dificultad de escribir interfaces grÃ¡ficas con puro cÃ³digo XML.
+Clase:Plantilla o modelo abstracto que define los atributos (propiedades) y métodos (comportamientos) que compartirán los objetos creados a partir de ella
 
-## Ficha 3: Controller
-1. **TÃ©rmino tÃ©cnico**: Controller
-2. **DefiniciÃ³n formal**: Clase en el patrÃ³n MVC que sirve como intermediario entre la vista (FXML) y el modelo.
-3. **DefiniciÃ³n en mis palabras**: Es el archivo Java que le da vida a la pantalla y ejecuta acciones al presionar botones.
-4. **UbicaciÃ³n en el cÃ³digo**: src/org/gc/controller/
-5. **Ejemplo prÃ¡ctico & problema que resuelve**: LibroController.java se encarga de guardar un libro cuando el usuario presiona "Guardar".
+Objeto: Una instancia concreta de una clase. Contiene valores específicos para los atributos definidos en la plantilla y puede ejecutar los métodos de su clase.
 
-## Ficha 4: ObservableList
-1. **TÃ©rmino tÃ©cnico**: ObservableList
-2. **DefiniciÃ³n formal**: Interfaz en JavaFX que extiende java.util.List para permitir a los listeners rastrear cambios.
-3. **DefiniciÃ³n en mis palabras**: Es una lista especial que avisa a la pantalla si se agregÃ³ o borrÃ³ un elemento para actualizarse sola.
-4. **UbicaciÃ³n en el cÃ³digo**: Definido en Controladores.
-5. **Ejemplo prÃ¡ctico & problema que resuelve**: Al usar ObservableList para un TableView, la tabla se refresca automÃ¡ticamente al aÃ±adir un nuevo registro.
+Encapsulamiento: Principio de la Programación Orientada a Objetos que oculta los detalles internos del estado de un objeto y restringe el acceso directo a sus datos, exponiéndolos únicamente a través de métodos públicos (como *getters* y *setters*).
 
-## Ficha 5: TableView
-1. **TÃ©rmino tÃ©cnico**: TableView
-2. **DefiniciÃ³n formal**: Control de UI en JavaFX diseÃ±ado para visualizar datos estructurados en filas y columnas.
-3. **DefiniciÃ³n en mis palabras**: Es el componente visual de tabla que lista datos en la pantalla.
-4. **UbicaciÃ³n en el cÃ³digo**: Archivos FXML y Controladores.
-5. **Ejemplo prÃ¡ctico & problema que resuelve**: Listar todos los registros de la base de datos en la pantalla de forma ordenada.
+Tipo Primitivo: Tipo de dato básico integrado en el lenguaje (por ejemplo, `int`, `double`, `boolean`, `char`) que almacena directamente su valor en memoria, sin ser un objeto ni poseer métodos.
+
+Clase Wrapper: Clase de Java (como `Integer`, `Double`, `Boolean`) que "envuelve" un tipo de dato primitivo para convertirlo en un objeto, permitiendo su uso en estructuras de datos que requieren objetos (como `List` o `Map`).
+
+glosario semana 2
+
+DAO: Patrón de diseño que abstrae y separa el acceso a la base de datos de la lógica de negocio de la aplicación, centralizando las operaciones de lectura y escritura (CRUD).
+
+JDBC: API de Java que proporciona un conjunto de clases e interfaces estándar para conectar aplicaciones Java con bases de datos relacionales y ejecutar consultas SQL.
+
+Singleton:Patrón de diseño creacional que garantiza que una clase tenga una única instancia en toda la aplicación y proporciona un punto de acceso global a ella.
+
+PreparedStatement: Interfaz de JDBC que representa una sentencia SQL precompilada. Permite ejecutar consultas de forma eficiente mediante parámetros dinámicos y previene ataques de inyección SQL.
+
+Inyección SQL Vulnerabilidad de seguridad que ocurre cuando un atacante inserta código SQL malicioso en las entradas de datos de una aplicación para manipular o acceder indebidamente a la base de datos.
+
+
+glosario semana 3
+
+
+FXML:
+Un lenguaje de marcado basado en XML que se utiliza para diseñar la interfaz gráfica de usuario (GUI) en aplicaciones de JavaFX. Permite separar la estructura visual de la lógica del programa.
+
+SceneBuilder:
+Una herramienta de diseño visual e interactiva para JavaFX. Permite construir e interfaces FXML mediante arrastrar y soltar (drag and drop) componentes, sin necesidad de escribir el código XML manualmente.
+
+Controller:
+Una clase de Java que gestiona la lógica de la interfaz visual creada en FXML. Se encarga de manejar los eventos de la aplicación (como clics de botones o entradas de texto) y conectar la vista con los datos de la aplicación.
+
+ObservableList:
+Una interfaz de JavaFX que extiende de java.util.List y permite a los componentes de la interfaz escuchar cuando ocurre un cambio en la lista (como agregar, modificar o eliminar un elemento) para actualizar automáticamente la interfaz gráfica.
+
+TableView:
+Un control visual de JavaFX diseñado para mostrar datos e información organizados en filas y columnas (tablas). Se vincula frecuentemente con una ObservableList para actualizar los datos mostrados en tiempo real.
+
+
+glosario semana 4
+
+Excepción
+Un evento anómalo o error que ocurre durante la ejecución de un programa y que interrumpe el flujo normal de sus instrucciones (por ejemplo, intentar dividir por cero o acceder a un archivo que no existe).
+
+Manejo de Errores
+El conjunto de técnicas y estructuras de código (como los bloques try-catch) utilizadas para anticipar, detectar y responder adecuadamente a las excepciones o fallos, evitando que el programa se detenga de forma inesperada.
+
+Release
+Una versión estable y terminada de un software que se distribuye o despliega para que la utilicen los usuarios finales. Incluye el código fuente compilado, correcciones de errores y nuevas funcionalidades listas para producción.
+
+Tag (Git)
+Una marca o referencia fija que apunta a un punto específico en la historia de commits de un repositorio de Git. Se utiliza habitualmente para etiquetar versiones clave del proyecto, como una release (por ejemplo, v1.0.0).
