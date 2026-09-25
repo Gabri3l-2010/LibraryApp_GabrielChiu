@@ -10,8 +10,26 @@ import org.gc.exception.DaoException;
 import org.gc.model.AutorLibro;
 import org.gc.util.Conexion;
 
+/**
+ * Implementación de la interfaz {@link AutorLibroDAO} que gestiona las operaciones
+ * de persistencia para la relación entre autores y libros mediante procedimientos almacenados.
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.dao.AutorLibroDAO
+ * @see org.gc.model.AutorLibro
+ */
 public class AutorLibroDAOImpl implements AutorLibroDAO {
 
+    /**
+     * Recupera la lista completa de relaciones entre autores y libros registradas en la base de datos
+     * mediante la ejecución del procedimiento almacenado {@code sp_listarautoreslibro}.
+     * 
+     * @return Una lista de tipo {@link ArrayList} que contiene los objetos {@link AutorLibro}.
+     * @throws DaoException Si ocurre un error de acceso a datos o conexión al ejecutar la consulta SQL.
+     * @see java.util.ArrayList
+     * @see org.gc.model.AutorLibro
+     */
     @Override
     public ArrayList<AutorLibro> listarTodos() {
         ArrayList<AutorLibro> lista = new ArrayList<>();
@@ -32,6 +50,15 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         return lista;
     }
 
+    /**
+     * Busca y obtiene la información de un registro autor_libro por su identificador único
+     * ejecutando el procedimiento almacenado {@code sp_buscarautorlibro}.
+     * 
+     * @param idAutorLibro Identificador único del registro {@link AutorLibro} a buscar.
+     * @return El objeto {@link AutorLibro} encontrado, o {@code null} si no existe coincidencia.
+     * @throws DaoException Si ocurre un error al ejecutar la consulta en la base de datos.
+     * @see org.gc.model.AutorLibro
+     */
     @Override
     public AutorLibro buscarPorId(Integer idAutorLibro) {
         AutorLibro al = null;
@@ -53,6 +80,15 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         return al;
     }
 
+    /**
+     * Inserta una nueva asociación entre un autor y un libro en la base de datos
+     * mediante el procedimiento almacenado {@code sp_insertarautorlibro}.
+     * 
+     * @param autorLibro Objeto {@link AutorLibro} que contiene los datos a registrar. No debe ser null.
+     * @return {@code true} si la inserción fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al ejecutar el procedimiento almacenado.
+     * @see org.gc.model.AutorLibro
+     */
     @Override
     public boolean crear(AutorLibro autorLibro) {
         String sql = "{call sp_insertarautorlibro(?,?)}";
@@ -66,6 +102,15 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         }
     }
 
+    /**
+     * Actualiza una relación autor_libro existente en la base de datos
+     * mediante el procedimiento almacenado {@code sp_actualizarautorlibro}.
+     * 
+     * @param autorLibro Objeto {@link AutorLibro} con los datos modificados. No debe ser null.
+     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al actualizar los datos en la base de datos.
+     * @see org.gc.model.AutorLibro
+     */
     @Override
     public boolean actualizar(AutorLibro autorLibro) {
         String sql = "{call sp_actualizarautorlibro(?,?,?)}";
@@ -80,6 +125,14 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         }
     }
 
+    /**
+     * Elimina un registro de relación entre autor y libro de la base de datos
+     * según su identificador único mediante el procedimiento almacenado {@code sp_eliminarautorlibro}.
+     * 
+     * @param idAutorLibro Identificador del registro a eliminar.
+     * @return {@code true} si la eliminación fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error de persistencia al intentar eliminar el registro.
+     */
     @Override
     public boolean eliminar(Integer idAutorLibro) {
         String sql = "{call sp_eliminarautorlibro(?)}";
@@ -92,4 +145,3 @@ public class AutorLibroDAOImpl implements AutorLibroDAO {
         }
     }
 }
-

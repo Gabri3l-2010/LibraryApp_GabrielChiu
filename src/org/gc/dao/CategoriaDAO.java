@@ -1,16 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package org.gc.dao;
 
 import org.gc.model.Categoria;
 
 /**
- *
- * @author aruba
+ * Contrato DAO que define las operaciones de persistencia específicas
+ * para la entidad {@link Categoria} dentro del sistema.
+ * <p>
+ * Extiende la interfaz genérica {@link Crud} utilizando un identificador de tipo {@link Integer}.
+ * </p>
+ * 
+ * @author Gabriel Chiu 
+ * @version 1.0.0
+ * @see org.gc.model.Categoria
+ * @see org.gc.dao.Crud
  */
-public interface CategoriaDAO extends Crud<Categoria, Integer>{
+public interface CategoriaDAO extends Crud<Categoria, Integer> {
     
 }
-

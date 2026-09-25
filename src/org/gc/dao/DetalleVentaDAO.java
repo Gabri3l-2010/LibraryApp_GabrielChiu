@@ -2,7 +2,18 @@ package org.gc.dao;
 
 import org.gc.model.DetalleVenta;
 
-public interface DetalleVentaDAO extends Crud<DetalleVenta, Integer>{
+/**
+ * Contrato DAO que define las operaciones de persistencia específicas
+ * para la entidad {@link DetalleVenta} dentro del sistema.
+ * <p>
+ * Extiende la interfaz genérica {@link Crud} utilizando un identificador de tipo {@link Integer}.
+ * </p>
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.model.DetalleVenta
+ * @see org.gc.dao.Crud
+ */
+public interface DetalleVentaDAO extends Crud<DetalleVenta, Integer> {
 
 }
-

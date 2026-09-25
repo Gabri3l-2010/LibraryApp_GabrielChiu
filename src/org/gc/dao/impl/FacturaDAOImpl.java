@@ -10,8 +10,27 @@ import org.gc.exception.DaoException;
 import org.gc.model.LineaFactura;
 import org.gc.util.Conexion;
 
+/**
+ * Implementación de la interfaz {@link FacturaDAO} que gestiona la consulta y
+ * recuperación de datos de facturación mediante procedimientos almacenados.
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.dao.FacturaDAO
+ * @see org.gc.model.LineaFactura
+ */
 public class FacturaDAOImpl implements FacturaDAO {
 
+    /**
+     * Busca y obtiene las líneas que componen una factura específica a partir de su número de venta
+     * ejecutando el procedimiento almacenado {@code sp_buscar_factura}.
+     * 
+     * @param noVenta Número correlativo de la venta a consultar.
+     * @return Un {@link ArrayList} de objetos {@link LineaFactura} con el detalle completo de la factura.
+     * @throws DaoException Si ocurre un error de acceso a datos o conexión durante la consulta SQL.
+     * @see java.util.ArrayList
+     * @see org.gc.model.LineaFactura
+     */
     @Override
     public ArrayList<LineaFactura> buscarFactura(int noVenta) {
         ArrayList<LineaFactura> lista = new ArrayList<>();
@@ -43,4 +62,3 @@ public class FacturaDAOImpl implements FacturaDAO {
         return lista;
     }
 }
-

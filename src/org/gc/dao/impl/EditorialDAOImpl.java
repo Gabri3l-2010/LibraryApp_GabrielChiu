@@ -10,8 +10,26 @@ import org.gc.exception.DaoException;
 import org.gc.model.Editorial;
 import org.gc.util.Conexion;
 
+/**
+ * Implementación de la interfaz {@link EditorialDAO} que gestiona las operaciones
+ * de persistencia para la entidad {@link Editorial} mediante procedimientos almacenados.
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.dao.EditorialDAO
+ * @see org.gc.model.Editorial
+ */
 public class EditorialDAOImpl implements EditorialDAO {
 
+    /**
+     * Recupera la lista completa de editoriales registradas en la base de datos
+     * ejecutando el procedimiento almacenado {@code sp_listar_todos_editoriales}.
+     * 
+     * @return Una lista de tipo {@link ArrayList} que contiene los objetos {@link Editorial}.
+     * @throws DaoException Si ocurre un error de acceso a datos o conexión al ejecutar la consulta SQL.
+     * @see java.util.ArrayList
+     * @see org.gc.model.Editorial
+     */
     @Override
     public ArrayList<Editorial> listarTodos() {
         ArrayList<Editorial> lista = new ArrayList<>();
@@ -33,6 +51,15 @@ public class EditorialDAOImpl implements EditorialDAO {
         return lista;
     }
 
+    /**
+     * Busca y obtiene la información de una editorial específica por su Número de Identificación Tributaria (NIT)
+     * ejecutando el procedimiento almacenado {@code sp_buscar_editorial_por_id}.
+     * 
+     * @param nit Número de Identificación Tributaria de la editorial a buscar.
+     * @return El objeto {@link Editorial} correspondiente, o {@code null} si no se encuentra.
+     * @throws DaoException Si ocurre un error durante la ejecución de la consulta SQL.
+     * @see org.gc.model.Editorial
+     */
     @Override
     public Editorial buscarPorId(String nit) {
         Editorial e = null;
@@ -55,6 +82,15 @@ public class EditorialDAOImpl implements EditorialDAO {
         return e;
     }
 
+    /**
+     * Inserta un nuevo registro de editorial en la base de datos mediante el
+     * procedimiento almacenado {@code sp_crear_editorial}.
+     * 
+     * @param editorial Objeto {@link Editorial} que contiene la información a registrar. No debe ser null.
+     * @return {@code true} si la inserción fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al ejecutar el procedimiento almacenado.
+     * @see org.gc.model.Editorial
+     */
     @Override
     public boolean crear(Editorial editorial) {
         String sql = "{call sp_crear_editorial(?,?,?,?)}";
@@ -70,6 +106,15 @@ public class EditorialDAOImpl implements EditorialDAO {
         }
     }
 
+    /**
+     * Actualiza los datos de una editorial existente mediante el procedimiento
+     * almacenado {@code sp_actualizar_editorial}.
+     * 
+     * @param editorial Objeto {@link Editorial} con la información modificada. No debe ser null.
+     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al ejecutar la instrucción en la base de datos.
+     * @see org.gc.model.Editorial
+     */
     @Override
     public boolean actualizar(Editorial editorial) {
         String sql = "{call sp_actualizar_editorial(?,?,?,?)}";
@@ -85,6 +130,14 @@ public class EditorialDAOImpl implements EditorialDAO {
         }
     }
 
+    /**
+     * Elimina una editorial de la base de datos según su Número de Identificación Tributaria (NIT)
+     * mediante el procedimiento almacenado {@code sp_eliminar_editorial}.
+     * 
+     * @param nit Número de Identificación Tributaria de la editorial a eliminar.
+     * @return {@code true} si la eliminación fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error de persistencia al intentar eliminar el registro.
+     */
     @Override
     public boolean eliminar(String nit) {
         String sql = "{call sp_eliminar_editorial(?)}";
@@ -97,4 +150,3 @@ public class EditorialDAOImpl implements EditorialDAO {
         }
     }
 }
-

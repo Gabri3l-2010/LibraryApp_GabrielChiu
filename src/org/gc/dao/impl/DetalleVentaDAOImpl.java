@@ -10,8 +10,26 @@ import org.gc.exception.DaoException;
 import org.gc.model.DetalleVenta;
 import org.gc.util.Conexion;
 
+/**
+ * Implementación de la interfaz {@link DetalleVentaDAO} que gestiona las operaciones
+ * de persistencia para la entidad {@link DetalleVenta} mediante procedimientos almacenados.
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.dao.DetalleVentaDAO
+ * @see org.gc.model.DetalleVenta
+ */
 public class DetalleVentaDAOImpl implements DetalleVentaDAO {
 
+    /**
+     * Recupera la lista completa de detalles de venta registrados en la base de datos
+     * ejecutando el procedimiento almacenado {@code sp_listar_detalle_venta}.
+     * 
+     * @return Una lista de tipo {@link ArrayList} que contiene los objetos {@link DetalleVenta}.
+     * @throws DaoException Si ocurre un error de acceso a datos o conexión al ejecutar la consulta SQL.
+     * @see java.util.ArrayList
+     * @see org.gc.model.DetalleVenta
+     */
     @Override
     public ArrayList<DetalleVenta> listarTodos() {
         ArrayList<DetalleVenta> lista = new ArrayList<>();
@@ -34,6 +52,15 @@ public class DetalleVentaDAOImpl implements DetalleVentaDAO {
         return lista;
     }
 
+    /**
+     * Busca y obtiene la información de un detalle de venta específico por su identificador único
+     * ejecutando el procedimiento almacenado {@code sp_buscar_detalle_venta}.
+     * 
+     * @param idDetalleVenta Identificador único del detalle de venta a buscar.
+     * @return El objeto {@link DetalleVenta} correspondiente, o {@code null} si no se encuentra.
+     * @throws DaoException Si ocurre un error durante la ejecución de la consulta SQL.
+     * @see org.gc.model.DetalleVenta
+     */
     @Override
     public DetalleVenta buscarPorId(Integer idDetalleVenta) {
         DetalleVenta dv = null;
@@ -57,6 +84,15 @@ public class DetalleVentaDAOImpl implements DetalleVentaDAO {
         return dv;
     }
 
+    /**
+     * Inserta un nuevo registro de detalle de venta en la base de datos mediante el
+     * procedimiento almacenado {@code sp_insertar_detalle_venta}.
+     * 
+     * @param detalleVenta Objeto {@link DetalleVenta} que contiene la información a registrar. No debe ser null.
+     * @return {@code true} si la inserción fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al ejecutar el procedimiento almacenado.
+     * @see org.gc.model.DetalleVenta
+     */
     @Override
     public boolean crear(DetalleVenta detalleVenta) {
         String sql = "{call sp_insertar_detalle_venta(?,?,?,?)}";
@@ -72,6 +108,15 @@ public class DetalleVentaDAOImpl implements DetalleVentaDAO {
         }
     }
 
+    /**
+     * Actualiza los datos de un detalle de venta existente mediante el procedimiento
+     * almacenado {@code sp_actualizar_detalle_venta}.
+     * 
+     * @param detalleVenta Objeto {@link DetalleVenta} con la información modificada. No debe ser null.
+     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al ejecutar la instrucción en la base de datos.
+     * @see org.gc.model.DetalleVenta
+     */
     @Override
     public boolean actualizar(DetalleVenta detalleVenta) {
         String sql = "{call sp_actualizar_detalle_venta(?,?,?,?,?)}";
@@ -88,6 +133,14 @@ public class DetalleVentaDAOImpl implements DetalleVentaDAO {
         }
     }
 
+    /**
+     * Elimina un detalle de venta de la base de datos según su identificador único
+     * mediante el procedimiento almacenado {@code sp_eliminar_detalle_venta}.
+     * 
+     * @param idDetalleVenta Identificador único del detalle de venta a eliminar.
+     * @return {@code true} si la eliminación fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error de persistencia al intentar eliminar el registro.
+     */
     @Override
     public boolean eliminar(Integer idDetalleVenta) {
         String sql = "{call sp_eliminar_detalle_venta(?)}";
@@ -100,4 +153,3 @@ public class DetalleVentaDAOImpl implements DetalleVentaDAO {
         }
     }
 }
-

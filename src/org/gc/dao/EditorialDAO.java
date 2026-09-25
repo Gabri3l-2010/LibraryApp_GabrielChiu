@@ -1,16 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package org.gc.dao;
 
 import org.gc.model.Editorial;
 
 /**
- *
- * @author aruba
+ * Contrato DAO que define las operaciones de persistencia específicas
+ * para la entidad {@link Editorial} dentro del sistema.
+ * <p>
+ * Extiende la interfaz genérica {@link Crud} utilizando un identificador de tipo {@link String}.
+ * </p>
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.model.Editorial
+ * @see org.gc.dao.Crud
  */
-public interface EditorialDAO extends Crud<Editorial, String>{
-    
-}
+public interface EditorialDAO extends Crud<Editorial, String> {
 
+}

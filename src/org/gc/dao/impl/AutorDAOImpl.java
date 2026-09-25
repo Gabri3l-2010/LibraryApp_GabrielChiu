@@ -10,8 +10,26 @@ import org.gc.exception.DaoException;
 import org.gc.model.Autor;
 import org.gc.util.Conexion;
 
+/**
+ * Implementación de la interfaz {@link AutorDAO} que gestiona las operaciones
+ * de persistencia para la entidad {@link Autor} mediante procedimientos almacenados.
+ * 
+ * @author Gabriel Chiu
+ * @version 1.0.0
+ * @see org.gc.dao.AutorDAO
+ * @see org.gc.model.Autor
+ */
 public class AutorDAOImpl implements AutorDAO {
 
+    /**
+     * Recupera la lista completa de autores registrados en la base de datos
+     * ejecutando el procedimiento almacenado {@code sp_listarautores}.
+     * 
+     * @return Una lista de tipo {@link ArrayList} que contiene los objetos {@link Autor}.
+     * @throws DaoException Si ocurre un error al ejecutar la consulta SQL o al conectar con la base de datos.
+     * @see java.util.ArrayList
+     * @see org.gc.model.Autor
+     */
     @Override
     public ArrayList<Autor> listarTodos() {
         ArrayList<Autor> lista = new ArrayList<>();
@@ -34,6 +52,15 @@ public class AutorDAOImpl implements AutorDAO {
         return lista;
     }
 
+    /**
+     * Busca y recupera la información de un autor específico por su identificador único
+     * ejecutando el procedimiento almacenado {@code sp_buscarautor}.
+     * 
+     * @param idAutor Identificador único del autor a buscar.
+     * @return El objeto {@link Autor} correspondiente, o {@code null} si no se encuentra.
+     * @throws DaoException Si ocurre un error durante la ejecución de la consulta SQL.
+     * @see org.gc.model.Autor
+     */
     @Override
     public Autor buscarPorId(Integer idAutor) {
         Autor a = null;
@@ -57,6 +84,15 @@ public class AutorDAOImpl implements AutorDAO {
         return a;
     }
 
+    /**
+     * Inserta un nuevo registro de autor en la base de datos mediante el
+     * procedimiento almacenado {@code sp_insertarautor}.
+     * 
+     * @param autor Objeto {@link Autor} que contiene la información a registrar. No debe ser null.
+     * @return {@code true} si la inserción fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al ejecutar el procedimiento almacenado.
+     * @see org.gc.model.Autor
+     */
     @Override
     public boolean crear(Autor autor) {
         String sql = "{call sp_insertarautor(?,?,?,?)}";
@@ -72,6 +108,15 @@ public class AutorDAOImpl implements AutorDAO {
         }
     }
 
+    /**
+     * Actualiza los datos de un autor existente mediante el procedimiento
+     * almacenado {@code sp_actualizarautor}.
+     * 
+     * @param autor Objeto {@link Autor} con la información modificada. No debe ser null.
+     * @return {@code true} si la actualización fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error al ejecutar la instrucción en la base de datos.
+     * @see org.gc.model.Autor
+     */
     @Override
     public boolean actualizar(Autor autor) {
         String sql = "{call sp_actualizarautor(?,?,?,?,?)}";
@@ -88,6 +133,14 @@ public class AutorDAOImpl implements AutorDAO {
         }
     }
 
+    /**
+     * Elimina un autor de la base de datos según su identificador único
+     * mediante el procedimiento almacenado {@code sp_eliminarautor}.
+     * 
+     * @param idAutor Identificador del autor a eliminar.
+     * @return {@code true} si la eliminación fue exitosa; {@code false} en caso contrario.
+     * @throws DaoException Si ocurre un error de persistencia al intentar eliminar el registro.
+     */
     @Override
     public boolean eliminar(Integer idAutor) {
         String sql = "{call sp_eliminarautor(?)}";
@@ -100,4 +153,3 @@ public class AutorDAOImpl implements AutorDAO {
         }
     }
 }
-
