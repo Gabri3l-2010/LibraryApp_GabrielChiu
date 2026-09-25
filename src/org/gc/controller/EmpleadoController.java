@@ -63,67 +63,67 @@ public class EmpleadoController implements Initializable {
     @FXML
     public void cerrarSesion(ActionEvent evento) {
         SesionContext.getInstancia().cerrarSesion();
-        navegar("/org/ac/view/fxml/InicioSesionView.fxml");
+        navegar("/org/gc/view/fxml/InicioSesionView.fxml");
     }
 
     @FXML
     public void irAInventario(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+        navegar("/org/gc/view/fxml/InventarioView.fxml");
     }
 
     @FXML
     public void irALibro(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/LibroView.fxml");
+        navegar("/org/gc/view/fxml/LibroView.fxml");
     }
 
     @FXML
     public void irAAutor(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/AutorView.fxml");
+        navegar("/org/gc/view/fxml/AutorView.fxml");
     }
 
     @FXML
     public void irACategoria(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/CategoriaView.fxml");
+        navegar("/org/gc/view/fxml/CategoriaView.fxml");
     }
 
     @FXML
     public void irAEditorial(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/EditorialView.fxml");
+        navegar("/org/gc/view/fxml/EditorialView.fxml");
     }
 
     @FXML
     public void irAClientes(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/ClienteView.fxml");
+        navegar("/org/gc/view/fxml/ClienteView.fxml");
     }
 
     @FXML
     public void verInventario(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+        navegar("/org/gc/view/fxml/InventarioView.fxml");
     }
 
     @FXML
     public void nuevoLibro(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/LibroView.fxml");
+        navegar("/org/gc/view/fxml/LibroView.fxml");
     }
 
     @FXML
     public void nuevoAutor(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/AutorView.fxml");
+        navegar("/org/gc/view/fxml/AutorView.fxml");
     }
 
     @FXML
     public void nuevaCategoria(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/CategoriaView.fxml");
+        navegar("/org/gc/view/fxml/CategoriaView.fxml");
     }
 
     @FXML
     public void nuevaEditorial(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/EditorialView.fxml");
+        navegar("/org/gc/view/fxml/EditorialView.fxml");
     }
 
     @FXML
     public void nuevoCliente(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/ClienteView.fxml");
+        navegar("/org/gc/view/fxml/ClienteView.fxml");
     }
 
     private void navegar(String ruta) {
@@ -138,4 +138,5 @@ public class EmpleadoController implements Initializable {
         }
     }
 }
+
 

@@ -59,47 +59,47 @@ public class CajeroController implements Initializable {
     @FXML
     public void cerrarSesion(ActionEvent evento) {
         SesionContext.getInstancia().cerrarSesion();
-        navegar("/org/ac/view/fxml/InicioSesionView.fxml");
+        navegar("/org/gc/view/fxml/InicioSesionView.fxml");
     }
 
     @FXML
     public void irAVenta(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/VentaView.fxml");
+        navegar("/org/gc/view/fxml/VentaView.fxml");
     }
 
     @FXML
     public void irADetalleVenta(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/DetalleVentaView.fxml");
+        navegar("/org/gc/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void irAListaVentas(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/ListaVentasView.fxml");
+        navegar("/org/gc/view/fxml/ListaVentasView.fxml");
     }
 
     @FXML
     public void irAInventario(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+        navegar("/org/gc/view/fxml/InventarioView.fxml");
     }
 
     @FXML
     public void agregarVenta(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/VentaView.fxml");
+        navegar("/org/gc/view/fxml/VentaView.fxml");
     }
 
     @FXML
     public void detalleVenta(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/DetalleVentaView.fxml");
+        navegar("/org/gc/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void listaVentas(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/ListaVentasView.fxml");
+        navegar("/org/gc/view/fxml/ListaVentasView.fxml");
     }
 
     @FXML
     public void verInventario(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+        navegar("/org/gc/view/fxml/InventarioView.fxml");
     }
 
     private void navegar(String ruta) {
@@ -114,4 +114,5 @@ public class CajeroController implements Initializable {
         }
     }
 }
+
 

@@ -71,7 +71,7 @@ public class RegistrarUsuarioController implements Initializable {
 
             if (registrado) {
                 mostrarAlerta(Alert.AlertType.INFORMATION, "Usuario registrado exitosamente.");
-                Main.cambiarEscena("/org/ac/view/fxml/InicioSesionView.fxml");
+                Main.cambiarEscena("/org/gc/view/fxml/InicioSesionView.fxml");
             } else {
                 mostrarAlerta(Alert.AlertType.ERROR, "Error al registrar. El usuario podría ya existir.");
             }
@@ -89,7 +89,7 @@ public class RegistrarUsuarioController implements Initializable {
     @FXML
     public void eventoVolver(ActionEvent evento) {
         try {
-            Main.cambiarEscena("/org/ac/view/fxml/InicioSesionView.fxml");
+            Main.cambiarEscena("/org/gc/view/fxml/InicioSesionView.fxml");
         } catch (IOException e) {
             System.err.println("Error al volver al login: " + e.getMessage());
         }
@@ -100,4 +100,5 @@ public class RegistrarUsuarioController implements Initializable {
         alerta.showAndWait();
     }
 }
+
 

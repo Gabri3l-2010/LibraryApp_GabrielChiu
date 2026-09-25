@@ -65,53 +65,53 @@ public class AdminDashboradController implements Initializable {
     @FXML
     public void cerrarSesion(ActionEvent evento) {
         SesionContext.getInstancia().cerrarSesion();
-        navegar("/org/ac/view/fxml/InicioSesionView.fxml");
+        navegar("/org/gc/view/fxml/InicioSesionView.fxml");
     }
 
     @FXML
     public void irAUsuario(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/UsuarioView.fxml");
+        navegar("/org/gc/view/fxml/UsuarioView.fxml");
     }
 
     @FXML
     public void irALibro(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/LibroView.fxml");
+        navegar("/org/gc/view/fxml/LibroView.fxml");
     }
 
     @FXML
     public void irAAutor(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/AutorView.fxml");
+        navegar("/org/gc/view/fxml/AutorView.fxml");
     }
 
     @FXML
     public void irACategoria(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/CategoriaView.fxml");
+        navegar("/org/gc/view/fxml/CategoriaView.fxml");
     }
 
     @FXML
     public void irAEditorial(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/EditorialView.fxml");
+        navegar("/org/gc/view/fxml/EditorialView.fxml");
     }
 
     @FXML
     public void irAVentas(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/ListaVentasView.fxml");
+        navegar("/org/gc/view/fxml/ListaVentasView.fxml");
     }
 
     @FXML
     public void irAAutorLibro(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/AutorLibroView.fxml");
+        navegar("/org/gc/view/fxml/AutorLibroView.fxml");
     }
 
     @FXML
     public void irADetalleVenta(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/DetalleVentaView.fxml");
+        navegar("/org/gc/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void irAClientes(ActionEvent evento) {
         try {
-            Main.cambiarEscena("/org/ac/view/fxml/ClienteView.fxml");
+            Main.cambiarEscena("/org/gc/view/fxml/ClienteView.fxml");
         } catch (IOException e) {
             System.err.println("Error al cargar clientes: " + e.getMessage());
             
@@ -120,32 +120,32 @@ public class AdminDashboradController implements Initializable {
 
     @FXML
     public void nuevoLibro(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/LibroFormView.fxml");
+        navegar("/org/gc/view/fxml/LibroFormView.fxml");
     }
 
     @FXML
     public void agregarVenta(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/VentaView.fxml");
+        navegar("/org/gc/view/fxml/VentaView.fxml");
     }
 
     @FXML
     public void verInventario(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+        navegar("/org/gc/view/fxml/InventarioView.fxml");
     }
 
     @FXML
     public void gestionarUsuarios(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/GestionUsuariosView.fxml");
+        navegar("/org/gc/view/fxml/GestionUsuariosView.fxml");
     }
 
     @FXML
     public void reportes(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/ReportesView.fxml");
+        navegar("/org/gc/view/fxml/ReportesView.fxml");
     }
 
     @FXML
     public void configuracion(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/ConfiguracionView.fxml");
+        navegar("/org/gc/view/fxml/ConfiguracionView.fxml");
     }
 
     private void navegar(String ruta) {
@@ -169,4 +169,5 @@ public class AdminDashboradController implements Initializable {
         lblRol.setText(iniciales + " · " + capitalize(usuario.getRol()));
     }
 }
+
 

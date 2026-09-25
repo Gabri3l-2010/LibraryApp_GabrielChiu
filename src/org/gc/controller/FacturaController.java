@@ -100,7 +100,7 @@ public class FacturaController implements Initializable {
     private void handleVolver() {
         try {
             //Regresa a la lista de ventas (origen de la factura), no al dashboard.
-            Main.cambiarEscena("/org/ac/view/fxml/ListaVentasView.fxml");
+            Main.cambiarEscena("/org/gc/view/fxml/ListaVentasView.fxml");
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -123,4 +123,5 @@ public class FacturaController implements Initializable {
         alert.showAndWait();
     }
 }
+
 

@@ -73,7 +73,7 @@ public class InicioSesionController implements Initializable {
     @FXML
     public void eventoRegistrarse(ActionEvent evento) {
         try {
-            Main.cambiarEscena("/org/ac/view/fxml/RegistrarUsuarioView.fxml");
+            Main.cambiarEscena("/org/gc/view/fxml/RegistrarUsuarioView.fxml");
         } catch (IOException e) {
             System.err.println("Error al cargar registro: " + e.getMessage());
             lblMensaje.setText("Error interno");
@@ -87,20 +87,20 @@ public class InicioSesionController implements Initializable {
         String rutaDashboard = "";
         switch (rol) {
             case "admin":
-                rutaDashboard = "/org/ac/view/fxml/AdminDashboradView.fxml";
+                rutaDashboard = "/org/gc/view/fxml/AdminDashboradView.fxml";
                 break;
             case "cajero":
-                rutaDashboard = "/org/ac/view/fxml/AdminDashboradView.fxml";
+                rutaDashboard = "/org/gc/view/fxml/AdminDashboradView.fxml";
                 break;
             case "empleado":
-                rutaDashboard = "/org/ac/view/fxml/AdminDashboradView.fxml";
+                rutaDashboard = "/org/gc/view/fxml/AdminDashboradView.fxml";
                 break;
             default:
                 throw new AssertionError();
         }
 
         //String rutaFXML = Main.rutaDashboardSegunRol();
-        if (rutaDashboard.equals("/org/ac/view/fxml/InicioSesionView.fxml")) {
+        if (rutaDashboard.equals("/org/gc/view/fxml/InicioSesionView.fxml")) {
             mostrarAlerta(Alert.AlertType.ERROR, "Rol desconocido: " + usuario.getRol());
             SesionContext.getInstancia().cerrarSesion();
             return;
@@ -118,4 +118,5 @@ public class InicioSesionController implements Initializable {
         alerta.showAndWait();
     }
 }
+
 
