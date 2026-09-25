@@ -14,29 +14,31 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import org.gc.model.Usuario;
-import org.gc.system.Principal;
+import java.security.Principal;
 import org.gc.manager.SesionContext;
 
-public class EmpleadoController implements Initializable {
+public class AdminDashboradController implements Initializable {
 
     @FXML private Label lblBienvenida;
     @FXML private Label lblRol;
     @FXML private Button btnCerrarSesion;
     @FXML private Circle avatarCircle;
 
-    @FXML private Button btnInventario;
+    @FXML private Button btnUsuario;
     @FXML private Button btnLibro;
     @FXML private Button btnAutor;
     @FXML private Button btnCategoria;
     @FXML private Button btnEditorial;
-    @FXML private Button btnClientes;
+    @FXML private Button btnVentas;
+    @FXML private Button btnAutorLibro;
+    @FXML private Button btnDetalleVenta;
 
-    @FXML private VBox cardVerInventario;
     @FXML private VBox cardNuevoLibro;
-    @FXML private VBox cardNuevoAutor;
-    @FXML private VBox cardNuevaCategoria;
-    @FXML private VBox cardNuevaEditorial;
-    @FXML private VBox cardNuevoCliente;
+    @FXML private VBox cardAgregarVenta;
+    @FXML private VBox cardVerInventario;
+    @FXML private VBox cardGestionarUsuarios;
+    @FXML private VBox cardReportes;
+    @FXML private VBox cardConfiguracion;
 
     private Usuario usuarioActual;
 
@@ -63,67 +65,87 @@ public class EmpleadoController implements Initializable {
     @FXML
     public void cerrarSesion(ActionEvent evento) {
         SesionContext.getInstancia().cerrarSesion();
-        navegar("/org/ac/view/fxml/InicioSesionView.fxml");
+        navegar("/org/gc/view/fxml/InicioSesionView.fxml");
     }
 
     @FXML
-    public void irAInventario(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+    public void irAUsuario(ActionEvent evento) {
+        navegar("/org/gc/view/fxml/UsuarioView.fxml");
     }
 
     @FXML
     public void irALibro(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/LibroView.fxml");
+        navegar("/org/gc/view/fxml/LibroView.fxml");
     }
 
     @FXML
     public void irAAutor(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/AutorView.fxml");
+        navegar("/org/gc/view/fxml/AutorView.fxml");
     }
 
     @FXML
     public void irACategoria(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/CategoriaView.fxml");
+        navegar("/org/gc/view/fxml/CategoriaView.fxml");
     }
 
     @FXML
     public void irAEditorial(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/EditorialView.fxml");
+        navegar("/org/gc/view/fxml/EditorialView.fxml");
+    }
+
+    @FXML
+    public void irAVentas(ActionEvent evento) {
+        navegar("/org/gc/view/fxml/ListaVentasView.fxml");
+    }
+
+    @FXML
+    public void irAAutorLibro(ActionEvent evento) {
+        navegar("/org/gc/view/fxml/AutorLibroView.fxml");
+    }
+
+    @FXML
+    public void irADetalleVenta(ActionEvent evento) {
+        navegar("/org/gc/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void irAClientes(ActionEvent evento) {
-        navegar("/org/ac/view/fxml/ClienteView.fxml");
-    }
-
-    @FXML
-    public void verInventario(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/InventarioView.fxml");
+        try {
+            Principal.cambiarEscena("/org/gc/view/fxml/ClienteView.fxml");
+        } catch (IOException e) {
+            System.err.println("Error al cargar clientes: " + e.getMessage());
+            
+        }
     }
 
     @FXML
     public void nuevoLibro(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/LibroView.fxml");
+        navegar("/org/gc/view/fxml/LibroFormView.fxml");
     }
 
     @FXML
-    public void nuevoAutor(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/AutorView.fxml");
+    public void agregarVenta(MouseEvent evento) {
+        navegar("/org/gc/view/fxml/VentaView.fxml");
     }
 
     @FXML
-    public void nuevaCategoria(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/CategoriaView.fxml");
+    public void verInventario(MouseEvent evento) {
+        navegar("/org/gc/view/fxml/InventarioView.fxml");
     }
 
     @FXML
-    public void nuevaEditorial(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/EditorialView.fxml");
+    public void gestionarUsuarios(MouseEvent evento) {
+        navegar("/org/gc/view/fxml/GestionUsuariosView.fxml");
     }
 
     @FXML
-    public void nuevoCliente(MouseEvent evento) {
-        navegar("/org/ac/view/fxml/ClienteView.fxml");
+    public void reportes(MouseEvent evento) {
+        navegar("/org/gc/view/fxml/ReportesView.fxml");
+    }
+
+    @FXML
+    public void configuracion(MouseEvent evento) {
+        navegar("/org/gc/view/fxml/ConfiguracionView.fxml");
     }
 
     private void navegar(String ruta) {
@@ -136,5 +158,14 @@ public class EmpleadoController implements Initializable {
             alerta.setHeaderText(null);
             alerta.showAndWait();
         }
+    }
+
+    public void iniciarUsuario(Usuario usuario) {
+        this.usuarioActual = usuario;
+        lblBienvenida.setText(usuario.getUsername());
+        String iniciales = usuario.getUsername()
+                .substring(0, Math.min(2, usuario.getUsername().length()))
+                .toUpperCase();
+        lblRol.setText(iniciales + " · " + capitalize(usuario.getRol()));
     }
 }

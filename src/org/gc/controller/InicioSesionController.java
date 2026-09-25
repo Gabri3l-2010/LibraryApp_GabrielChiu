@@ -1,21 +1,120 @@
-﻿package org.gc.controller;
+package org.gc.controller;
+
+import java.io.IOException;
+import org.gc.dao.UsuarioDAO;
+import org.gc.dao.impl.UsuarioDAOImpl;
+import org.gc.exception.DaoException;
+import org.gc.exception.ValidacionException;
+import org.gc.util.SecurityUtil;
+import org.gc.model.Usuario;
+import org.gc.system.Principal;
+import org.gc.manager.SesionContext;
+
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
-/**
- * Controlador para gestionar la vista de InicioSesion.
- * @author Gabriel Chiu
- * @version 1.0.0
- * @see org.gc.view.fxml.InicioSesionView
- */
 public class InicioSesionController implements Initializable {
-    /**
-     * @param url Ubicacion
-     * @param rb Recursos
-     */
+
+    @FXML
+    private TextField txtUsuario;
+    @FXML
+    private PasswordField txtPassword;
+    @FXML
+    private Button btnIniciarSesion;
+    @FXML
+    private Label lblMensaje;
+
+    private UsuarioDAO usuarioDAO;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Inicializar
+        usuarioDAO = new UsuarioDAOImpl();
+        lblMensaje.setText("");
+        //Deteccion de teclado: Enter en usuario o contrasena dispara el login,
+        //igual que el boton INICIAR.
+        txtUsuario.setOnAction(this::eventoInicioSesion);
+        txtPassword.setOnAction(this::eventoInicioSesion);
+    }
+
+    @FXML
+    public void eventoInicioSesion(ActionEvent evento) {
+        try {
+            ValidacionException.validarNoVacio(txtUsuario.getText(), "usuario");
+            ValidacionException.validarNoVacio(txtPassword.getText(), "contraseña");
+            String usuario = txtUsuario.getText();
+            String password = txtPassword.getText();
+            String passwordHash = SecurityUtil.hashSHA256(password);
+            Usuario usuarioIniciado = usuarioDAO.iniciarSesion(usuario, passwordHash);
+
+            if (usuarioIniciado != null) {
+                mostrarAlerta(Alert.AlertType.INFORMATION, "Inicio correcto");
+                abrirDashboard(usuarioIniciado);
+            } else {
+                mostrarAlerta(Alert.AlertType.ERROR, "Usuario o contraseña incorrectos");
+            }
+        } catch (ValidacionException e) {
+            mostrarAlerta(Alert.AlertType.WARNING, e.getMessage());
+            lblMensaje.setText(e.getMessage());
+        } catch (DaoException e) {
+            mostrarAlerta(Alert.AlertType.ERROR, e.getMessage());
+            lblMensaje.setText("Error al iniciar sesión");
+        }
+    }
+
+    @FXML
+    public void eventoRegistrarse(ActionEvent evento) {
+        try {
+            Principal.cambiarEscena("/org/ac/view/fxml/RegistrarUsuarioView.fxml");
+        } catch (IOException e) {
+            System.err.println("Error al cargar registro: " + e.getMessage());
+            lblMensaje.setText("Error interno");
+        }
+    }
+
+    private void abrirDashboard(Usuario usuario) {
+        SesionContext.getInstancia().setUsuarioActual(usuario);
+
+        String rol = usuario.getRol();
+        String rutaDashboard = "";
+        switch (rol) {
+            case "admin":
+                rutaDashboard = "/org/ac/view/fxml/AdminDashboradView.fxml";
+                break;
+            case "cajero":
+                rutaDashboard = "/org/ac/view/fxml/AdminDashboradView.fxml";
+                break;
+            case "empleado":
+                rutaDashboard = "/org/ac/view/fxml/AdminDashboradView.fxml";
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+        //String rutaFXML = Principal.rutaDashboardSegunRol();
+        if (rutaDashboard.equals("/org/ac/view/fxml/InicioSesionView.fxml")) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Rol desconocido: " + usuario.getRol());
+            SesionContext.getInstancia().cerrarSesion();
+            return;
+        }
+        try {
+            Principal.cambiarEscena(rutaDashboard);
+        } catch (IOException e) {
+            System.err.println("Error al cargar la vista:" + rutaDashboard + e.getMessage());
+            lblMensaje.setText("Error interno");
+        }
+    }
+
+    private void mostrarAlerta(Alert.AlertType tipo, String mensaje) {
+        Alert alerta = new Alert(tipo, mensaje, ButtonType.OK);
+        alerta.showAndWait();
     }
 }
