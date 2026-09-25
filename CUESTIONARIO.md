@@ -172,3 +172,38 @@ String query = "SELECT * FROM usuarios WHERE usuario = '" + usuario + "' AND pas
 cuestionario semana 3 
  por que JavaFX utiliza ObserbableList en lugar de las listas de Java (ArrayList para nutrit componentes como TableView)?
 
+
+cuestionario semana 3
+
+¿Por qué JavaFX utiliza ObservableList en lugar de las Listas clásicas de Java (ArrayList) para nutrir componentes como el TableView?
+
+A diferencia de un ArrayList, una ObservableList emite eventos cada vez que se agrega, elimina o modifica un elemento. Componentes como el TableView escuchan estos cambios y redibujan solo las filas afectadas en tiempo real, sin necesidad de refrescar la pantalla manualmente por código.
+
+cuestionario semana 4
+¿Cuáles son las mejores prácticas para el manejo de excepciones y notificaciones en interfaces de usuario para no exponer código interno o StackTraces?
+
+1. Desacoplamiento y captura centralizada
+Global Handler: Implementa un manejador global de excepciones para capturar cualquier error no controlado antes de que alcance la vista o la consola del cliente.
+
+Capa de Abstracción: Separa las excepciones técnicas (Base de Datos, Red, NullPointer) de los errores de negocio o de presentación. Transforma siempre las excepciones internas a excepciones orientadas al usuario antes de notificarlas.
+
+2. Clasificación de errores y mensajes dirigidos
+Mensajes genéricos al usuario: Muestra mensajes amigables y comprensibles que expliquen qué ocurrió y cómo proceder, sin revelar detalles de implementación.
+
+Ejemplo correcto: "No pudimos guardar los cambios. Por favor, verifica tu conexión e inténtalo de nuevo."
+
+Ejemplo incorrecto: "SQLException: Duplicate key entry 'user_id' in table 'users'."
+
+Código de referencia único: Genera un ID de error aleatorio (UUID) o código de soporte al ocurrir una excepción. Muestra ese código al usuario y regístralo internamente para poder rastrear la falla sin exponer la causa en pantalla.
+
+3. Registro seguro (Logging)
+Separación de logs: Envía los detalles técnicos, StackTraces y estados del sistema exclusivamente a un sistema de almacenamiento seguro de logs (como Sentry, Datadog o archivos internos).
+
+Sanitización de datos: Asegúrate de que los logs no guarden datos sensibles (passwords, tokens, tarjetas, PII).
+
+4. Seguridad en las Notificaciones de UI
+Sin componentes de debug en producción: Desactiva modales o visores de log en entornos finales.
+
+Componentes visuales estándar: Utiliza avisos no intrusivos (toasts, banners o modales simples) que contengan únicamente el mensaje formateado.
+
+Prevención en APIs: En arquitecturas Cliente-Servidor, asegúrate de que las respuestas HTTP de error (4xx, 5xx) retornen un esquema JSON limpio y sin información de stack traces.
