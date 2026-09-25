@@ -26,7 +26,7 @@ import org.gc.exception.DaoException;
 import org.gc.exception.ValidacionException;
 import org.gc.manager.SesionContext;
 import org.gc.model.Usuario;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 import org.gc.util.SecurityUtil;
 
 public class UsuarioController implements Initializable {
@@ -374,7 +374,7 @@ public class UsuarioController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -462,3 +462,4 @@ public class UsuarioController implements Initializable {
     }
 
 }
+

@@ -26,7 +26,7 @@ import org.gc.exception.ValidacionException;
 import org.gc.model.Categoria;
 import org.gc.model.Editorial;
 import org.gc.model.Libro;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 
 public class LibroController implements Initializable {
 
@@ -297,7 +297,7 @@ public class LibroController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -372,3 +372,4 @@ public class LibroController implements Initializable {
     }
 
 }
+

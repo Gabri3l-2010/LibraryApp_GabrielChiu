@@ -30,7 +30,7 @@ import org.gc.manager.SesionContext;
 import org.gc.model.Cliente;
 import org.gc.model.Usuario;
 import org.gc.model.Venta;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 
 public class ListaVentasController implements Initializable {
 
@@ -312,7 +312,7 @@ public class ListaVentasController implements Initializable {
         }
         FacturaController.setNoVentaSeleccionada(seleccion.getNoVenta());
         try {
-            Principal.cambiarEscena("/org/ac/view/fxml/FacturaView.fxml");
+            Main.cambiarEscena("/org/ac/view/fxml/FacturaView.fxml");
         } catch (Exception e) {
             mostrarError("Error al abrir la factura: " + e.getMessage());
         }
@@ -321,7 +321,7 @@ public class ListaVentasController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -387,3 +387,4 @@ public class ListaVentasController implements Initializable {
     }
 
 }
+

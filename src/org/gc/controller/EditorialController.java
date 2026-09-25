@@ -1,7 +1,6 @@
 package org.gc.controller;
 
 import java.net.URL;
-import java.security.Principal;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,7 +19,7 @@ import org.gc.dao.impl.EditorialDAOImpl;
 import org.gc.exception.DaoException;
 import org.gc.exception.ValidacionException;
 import org.gc.model.Editorial;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 
 public class EditorialController implements Initializable {
 
@@ -231,7 +230,7 @@ public class EditorialController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -297,3 +296,4 @@ public class EditorialController implements Initializable {
     }
 
 }
+

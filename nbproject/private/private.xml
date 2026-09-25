@@ -2,6 +2,28 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/InventarioController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/UsuarioController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/InicioSesionController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/LibroController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/dao/impl/AutorLibroDAOImpl.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/AdminDashboradController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/EmpleadoController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/AutorController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/DetalleVentaController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/RegistrarUsuarioController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/AutorLibroController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/FacturaController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/manager/SesionContext.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/view/fxml/AdminDashboardView.fxml</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/CajeroController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/system/Main.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/VentaController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/CategoriaController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/ClienteController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/EditorialController.java</file>
+            <file>file:/C:/gabriel_chiu/bim_cuatro/s_siete/LibraryApp_GabrielChiu/src/org/gc/controller/ListaVentasController.java</file>
+        </group>
     </open-files>
 </project-private>

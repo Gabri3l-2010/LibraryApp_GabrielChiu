@@ -4,13 +4,13 @@
  */
 package org.gc.dao;
 
-import org.gc.model.Cliente;
+import org.gc.model.Categoria;
 
 /**
  *
  * @author aruba
  */
-public interface ClienteDAO extends Crud<Cliente, Long>{
+public interface CategoriaDAO extends Crud<Categoria, Integer>{
     
 }
 

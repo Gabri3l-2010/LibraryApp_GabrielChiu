@@ -1,4 +1,4 @@
-package org.ac.controller;
+package org.gc.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +16,7 @@ import org.gc.dao.LibroDAO;
 import org.gc.dao.impl.LibroDAOImpl;
 import org.gc.exception.DaoException;
 import org.gc.model.Libro;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 
 public class InventarioController implements Initializable {
 
@@ -80,7 +80,7 @@ public class InventarioController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -95,3 +95,4 @@ public class InventarioController implements Initializable {
     }
 
 }
+

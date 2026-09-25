@@ -27,7 +27,7 @@ import org.gc.exception.ValidacionException;
 import org.gc.model.DetalleVenta;
 import org.gc.model.Libro;
 import org.gc.model.Venta;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 
 public class DetalleVentaController implements Initializable {
 
@@ -286,7 +286,7 @@ public class DetalleVentaController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -352,3 +352,4 @@ public class DetalleVentaController implements Initializable {
     }
 
 }
+

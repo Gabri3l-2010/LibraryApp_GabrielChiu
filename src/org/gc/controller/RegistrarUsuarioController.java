@@ -17,7 +17,7 @@ import org.gc.dao.impl.UsuarioDAOImpl;
 import org.gc.exception.DaoException;
 import org.gc.exception.ValidacionException;
 import org.gc.model.Usuario;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 import org.gc.util.SecurityUtil;
 
 public class RegistrarUsuarioController implements Initializable {
@@ -71,7 +71,7 @@ public class RegistrarUsuarioController implements Initializable {
 
             if (registrado) {
                 mostrarAlerta(Alert.AlertType.INFORMATION, "Usuario registrado exitosamente.");
-                Principal.cambiarEscena("/org/ac/view/fxml/InicioSesionView.fxml");
+                Main.cambiarEscena("/org/ac/view/fxml/InicioSesionView.fxml");
             } else {
                 mostrarAlerta(Alert.AlertType.ERROR, "Error al registrar. El usuario podría ya existir.");
             }
@@ -89,7 +89,7 @@ public class RegistrarUsuarioController implements Initializable {
     @FXML
     public void eventoVolver(ActionEvent evento) {
         try {
-            Principal.cambiarEscena("/org/ac/view/fxml/InicioSesionView.fxml");
+            Main.cambiarEscena("/org/ac/view/fxml/InicioSesionView.fxml");
         } catch (IOException e) {
             System.err.println("Error al volver al login: " + e.getMessage());
         }
@@ -100,3 +100,4 @@ public class RegistrarUsuarioController implements Initializable {
         alerta.showAndWait();
     }
 }
+

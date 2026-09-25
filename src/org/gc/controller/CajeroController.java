@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import org.gc.model.Usuario;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 import org.gc.manager.SesionContext;
 
 public class CajeroController implements Initializable {
@@ -59,52 +59,52 @@ public class CajeroController implements Initializable {
     @FXML
     public void cerrarSesion(ActionEvent evento) {
         SesionContext.getInstancia().cerrarSesion();
-        navegar("/org/gc/view/fxml/InicioSesionView.fxml");
+        navegar("/org/ac/view/fxml/InicioSesionView.fxml");
     }
 
     @FXML
     public void irAVenta(ActionEvent evento) {
-        navegar("/org/gc/view/fxml/VentaView.fxml");
+        navegar("/org/ac/view/fxml/VentaView.fxml");
     }
 
     @FXML
     public void irADetalleVenta(ActionEvent evento) {
-        navegar("/org/gc/view/fxml/DetalleVentaView.fxml");
+        navegar("/org/ac/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void irAListaVentas(ActionEvent evento) {
-        navegar("/org/gc/view/fxml/ListaVentasView.fxml");
+        navegar("/org/ac/view/fxml/ListaVentasView.fxml");
     }
 
     @FXML
     public void irAInventario(ActionEvent evento) {
-        navegar("/org/gc/view/fxml/InventarioView.fxml");
+        navegar("/org/ac/view/fxml/InventarioView.fxml");
     }
 
     @FXML
     public void agregarVenta(MouseEvent evento) {
-        navegar("/org/gc/view/fxml/VentaView.fxml");
+        navegar("/org/ac/view/fxml/VentaView.fxml");
     }
 
     @FXML
     public void detalleVenta(MouseEvent evento) {
-        navegar("/org/gc/view/fxml/DetalleVentaView.fxml");
+        navegar("/org/ac/view/fxml/DetalleVentaView.fxml");
     }
 
     @FXML
     public void listaVentas(MouseEvent evento) {
-        navegar("/org/gc/view/fxml/ListaVentasView.fxml");
+        navegar("/org/ac/view/fxml/ListaVentasView.fxml");
     }
 
     @FXML
     public void verInventario(MouseEvent evento) {
-        navegar("/org/gc/view/fxml/InventarioView.fxml");
+        navegar("/org/ac/view/fxml/InventarioView.fxml");
     }
 
     private void navegar(String ruta) {
         try {
-            Principal.cambiarEscena(ruta);
+            Main.cambiarEscena(ruta);
         } catch (IOException | NullPointerException e) {
             Alert alerta = new Alert(Alert.AlertType.INFORMATION,
                     "Esta sección estará disponible próximamente.", ButtonType.OK);
@@ -114,3 +114,4 @@ public class CajeroController implements Initializable {
         }
     }
 }
+

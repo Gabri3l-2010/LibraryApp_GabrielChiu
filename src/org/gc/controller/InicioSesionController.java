@@ -7,7 +7,7 @@ import org.gc.exception.DaoException;
 import org.gc.exception.ValidacionException;
 import org.gc.util.SecurityUtil;
 import org.gc.model.Usuario;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 import org.gc.manager.SesionContext;
 
 import java.net.URL;
@@ -73,7 +73,7 @@ public class InicioSesionController implements Initializable {
     @FXML
     public void eventoRegistrarse(ActionEvent evento) {
         try {
-            Principal.cambiarEscena("/org/ac/view/fxml/RegistrarUsuarioView.fxml");
+            Main.cambiarEscena("/org/ac/view/fxml/RegistrarUsuarioView.fxml");
         } catch (IOException e) {
             System.err.println("Error al cargar registro: " + e.getMessage());
             lblMensaje.setText("Error interno");
@@ -99,14 +99,14 @@ public class InicioSesionController implements Initializable {
                 throw new AssertionError();
         }
 
-        //String rutaFXML = Principal.rutaDashboardSegunRol();
+        //String rutaFXML = Main.rutaDashboardSegunRol();
         if (rutaDashboard.equals("/org/ac/view/fxml/InicioSesionView.fxml")) {
             mostrarAlerta(Alert.AlertType.ERROR, "Rol desconocido: " + usuario.getRol());
             SesionContext.getInstancia().cerrarSesion();
             return;
         }
         try {
-            Principal.cambiarEscena(rutaDashboard);
+            Main.cambiarEscena(rutaDashboard);
         } catch (IOException e) {
             System.err.println("Error al cargar la vista:" + rutaDashboard + e.getMessage());
             lblMensaje.setText("Error interno");
@@ -118,3 +118,4 @@ public class InicioSesionController implements Initializable {
         alerta.showAndWait();
     }
 }
+

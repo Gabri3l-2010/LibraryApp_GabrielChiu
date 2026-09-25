@@ -14,7 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 import org.gc.model.Usuario;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 import org.gc.manager.SesionContext;
 
 public class EmpleadoController implements Initializable {
@@ -128,7 +128,7 @@ public class EmpleadoController implements Initializable {
 
     private void navegar(String ruta) {
         try {
-            Principal.cambiarEscena(ruta);
+            Main.cambiarEscena(ruta);
         } catch (IOException | NullPointerException e) {
             Alert alerta = new Alert(Alert.AlertType.INFORMATION,
                     "Esta sección estará disponible próximamente.", ButtonType.OK);
@@ -138,3 +138,4 @@ public class EmpleadoController implements Initializable {
         }
     }
 }
+

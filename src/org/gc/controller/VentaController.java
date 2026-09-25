@@ -28,7 +28,7 @@ import org.gc.model.Cliente;
 import org.gc.model.Libro;
 import org.gc.model.LineaVenta;
 import org.gc.model.Venta;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 
 //Controlador de la venta: arma líneas (libro + cantidad) en una tabla temporal,
 //calcula el total automáticamente y al guardar crea la Venta y sus DetalleVenta
@@ -190,7 +190,7 @@ public class VentaController implements Initializable {
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
@@ -213,3 +213,4 @@ public class VentaController implements Initializable {
     }
 
 }
+

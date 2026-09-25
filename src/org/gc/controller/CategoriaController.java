@@ -19,16 +19,16 @@ import org.gc.dao.impl.CategoriaDAOImpl;
 import org.gc.exception.DaoException;
 import org.gc.exception.ValidacionException;
 import org.gc.model.Categoria;
-import org.gc.system.Principal;
+import org.gc.system.Main;
 
 /**
  * Controlador de la interfaz gráfica de usuario para la gestión de categorías.
  * Administra la presentación, búsqueda, creación, edición y navegación de registros de {@link Categoria} en JavaFX.
  *
- * @author Gabriel Chiu
+ * @author Alvaro Calderón
  * @version 1.0
  * @see javafx.fxml.Initializable
- * @see org.ac.model.Categoria
+ * @see org.gc.model.Categoria
  */
 public class CategoriaController implements Initializable {
 
@@ -270,12 +270,12 @@ public class CategoriaController implements Initializable {
     }
 
     /**
-     * Maneja el evento para regresar a la vista del dashboard principal de la aplicación.
+     * Maneja el evento para regresar a la vista del dashboard Main de la aplicación.
      */
     @FXML
     private void handleVolver() {
         try {
-            Principal.cambiarEscena(Principal.rutaDashboardSegunRol());
+            Main.cambiarEscena(Main.rutaDashboardSegunRol());
         } catch (Exception e) {
             mostrarError("Error al volver al menú: " + e.getMessage());
         }
